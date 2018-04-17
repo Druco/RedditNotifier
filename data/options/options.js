@@ -40,12 +40,12 @@ var options = [
 			"name": "unreadModerator",
 			"title": "Check for new moderator mail?",
 			"type": "bool",
-			"value": true
+			"value": false
 		},
 		{
 			"name": "unreadMessage",
 			"title": "Check for unread messages and replies?",
 			"type": "bool",
-			"value": true
+			"value": false
 		}
 ];

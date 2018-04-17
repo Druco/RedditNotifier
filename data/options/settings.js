@@ -42,12 +42,15 @@ var Settings = function(element) {
 	 */
 	var saveSetting = function(e) {
 		var obj = {};
+
 		// Check whether field is in valid state before saving
 		if (!e.target.validity.valid) return false;
 		// Get checked status if checkbox, else get the value
 		obj[e.target.id] = (e.target.type === "checkbox") ? e.target.checked : e.target.value;
 		// Save in browser local storage
 		browser.storage.local.set(obj);
+        // Send a message to the main thread to update its current configuration
+        browser.runtime.sendMessage({type: "settingChange", setting: e.target.id, value: obj[e.target.id]});
 	}
 
 	var required = ["name", "title", "type"];
